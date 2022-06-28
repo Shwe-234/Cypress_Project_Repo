@@ -1,0 +1,134 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-05-24T05:34:45.207Z",
+    "end": "2022-05-24T05:34:47.290Z",
+    "duration": 2083,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a4852a1a-2749-48e0-9a3c-fbd26b29724c",
+      "title": "",
+      "fullFile": "cypress/integration/tests/weatherapi.js",
+      "file": "cypress/integration/tests/weatherapi.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4e14d7b0-82fc-4d9b-aeb2-4df46e050968",
+          "title": "check weather informaiton",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "get weather ifnormation for cities",
+              "fullTitle": "check weather informaiton get weather ifnormation for cities",
+              "timedOut": null,
+              "duration": 1333,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\weatherapi.js\\\\check weather informaiton -- get weather ifnormation for cities (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "//1st request: GET locations\ncy.request({\n  method: \"GET\",\n  url: Cypress.env(\"weatherurl\")\n}).then(function (resp) {\n  var city = resp.body[0].title;\n  return city;\n}).then(function (city) {\n  //2nd request for the first location/city\n  cy.request({\n    method: \"GET\",\n    url: Cypress.env(\"weatherurl2\") + city\n  }).then(function (resp) {\n    expect(resp.status).to.eq(200);\n    expect(resp.body[0]).to.have.property(\"title\", city);\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://www.metaweather.com/api/location/search/?query=San\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://www.metaweather.com/api/location/search/?query=San\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-length\": \"272\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"date\": \"Tue, 24 May 2022 05:34:46 GMT\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>404 Page not found</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Page not found</h1>\n<h2>The requested URL was not found on this server.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://www.metaweather.com/api/location/search/?query=San\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://www.metaweather.com/api/location/search/?query=San\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-length\": \"272\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"date\": \"Tue, 24 May 2022 05:34:46 GMT\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>404 Page not found</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Page not found</h1>\n<h2>The requested URL was not found on this server.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at http://localhost:56808/__cypress/runner/cypress_runner.js:164670:80\n    at tryCatcher (http://localhost:56808/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:56808/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:56808/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:56808/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:56808/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (http://localhost:56808/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:56808/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:56808/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:56808/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:56808/__cypress/tests?p=cypress\\integration\\tests\\weatherapi.js:7:8)",
+                "diff": null
+              },
+              "uuid": "2966eaac-30a4-4f5b-8bea-80b2397ca52d",
+              "parentUUID": "4e14d7b0-82fc-4d9b-aeb2-4df46e050968",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get weather information for all cities",
+              "fullTitle": "check weather informaiton get weather information for all cities",
+              "timedOut": null,
+              "duration": 578,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\weatherapi.js\\\\check weather informaiton -- get weather information for all cities (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "//1st request: GET locations\ncy.request({\n  method: \"GET\",\n  url: Cypress.env(\"weatherurl3\")\n}).then(function (resp) {\n  var location = resp.body;\n  return location;\n}).then(function (location) {\n  var _loop = function _loop(i) {\n    //2nd request for the first location/city\n    cy.request({\n      method: \"GET\",\n      url: Cypress.env(\"weatherurl2\") + location[i].title\n    }).then(function (resp) {\n      expect(resp.status).to.eq(200);\n      expect(resp.body[0]).to.have.property(\"title\", location[i].title);\n    });\n  };\n  for (var i = 0; i < location.length; i++) {\n    _loop(i);\n  }\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://www.metaweather.com/api/location/search/?query=Am\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://www.metaweather.com/api/location/search/?query=Am\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-length\": \"272\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"date\": \"Tue, 24 May 2022 05:34:46 GMT\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>404 Page not found</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Page not found</h1>\n<h2>The requested URL was not found on this server.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://www.metaweather.com/api/location/search/?query=Am\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://www.metaweather.com/api/location/search/?query=Am\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-length\": \"272\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"date\": \"Tue, 24 May 2022 05:34:46 GMT\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>404 Page not found</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Page not found</h1>\n<h2>The requested URL was not found on this server.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at http://localhost:56808/__cypress/runner/cypress_runner.js:164670:80\n    at tryCatcher (http://localhost:56808/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:56808/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:56808/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:56808/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:56808/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (http://localhost:56808/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:56808/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:56808/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:56808/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:56808/__cypress/tests?p=cypress\\integration\\tests\\weatherapi.js:26:8)",
+                "diff": null
+              },
+              "uuid": "029b59d6-b2c0-4aa1-953a-92b38be5ac72",
+              "parentUUID": "4e14d7b0-82fc-4d9b-aeb2-4df46e050968",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2966eaac-30a4-4f5b-8bea-80b2397ca52d",
+            "029b59d6-b2c0-4aa1-953a-92b38be5ac72"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1911,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\report\\.jsons",
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "reportPageTitle": "custom-title",
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

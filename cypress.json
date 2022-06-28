@@ -1,0 +1,37 @@
+{
+  "defaultCommandTimeout": 100000,
+  "pageLoadTimeout": 100000,
+  "fixturesFolder": "cypress/fixtures",
+  "viewportHeight": 768,
+  "viewportWidth": 1366,
+  "integrationFolder": "cypress/integration/tests",
+  "video": true,
+  "responseTimeout": 40000,
+  "chromeWebSecurity": false,
+  "experimentalStudio": true,
+  "baseUrl": "http://coop.apps.symfonycasts.com",
+  "env": {
+    "url": "https://www.flipkart.com/",
+    "url2": "https://www.selenium.dev/",
+    "demourl": "https://demoqa.com/alerts",
+    "goresturl": "https://gorest.co.in/public/v2/users/",
+    "goresturl1": "https://gorest.co.in/public/v2/users/3612",
+    "weatherurl": "https://www.metaweather.com/api/location/search/?query=San",
+    "weatherurl2": "https://www.metaweather.com/api/location/search/?query=",
+    "weatherurl3": "https://www.metaweather.com/api/location/search/?query=Am",
+    "typicodeurl": "https://jsonplaceholder.typicode.com/",
+    "dashboardurl": "http://localhost:7074/dashboard",
+    "requesturl": "http://localhost:7075/login",
+    "redirecturl": "http://localhost:7074/set_token"
+  },
+  "testFiles": "**/*.{feature,js}",
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/report",
+    "charts": true,
+    "overwrite": "true",
+    "html": "true",
+    "reportPageTitle": "custom-title"
+  },
+  "projectId": "x5hfz6"
+}

@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-24T09:33:05.991Z",
+    "end": "2022-05-24T09:33:06.988Z",
+    "duration": 997,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ae030b53-6fc3-4d5e-bd93-9ac764f1cc97",
+      "title": "",
+      "fullFile": "cypress/integration/tests/DeleteUser.js",
+      "file": "cypress/integration/tests/DeleteUser.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eeb34c4e-486d-49de-9d37-21e3bdf5a4de",
+          "title": "Delete user request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "create user test",
+              "fullTitle": "Delete user request create user test",
+              "timedOut": null,
+              "duration": 929,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var pattern = dataJson.pattern;\nfor (var i = 0; i < 10; i++) {\n  randomText += pattern.charAt(Math.floor(Math.random() * pattern.length));\n}\ntestEmail = randomText + dataJson.extension;\ncy.fixture(\"createuser\").then(function (payload) {\n  //1. create user (POST)\n  cy.request({\n    method: \"POST\",\n    url: Cypress.env(\"goresturl\"),\n    headers: {\n      Authorization: \"Bearer \" + accessToken\n    },\n    body: {\n      name: payload.name,\n      gender: payload.gender,\n      email: testEmail,\n      status: payload.status\n    }\n  }).then(function (res) {\n    cy.log(JSON.stringify(res));\n    expect(res.status).to.eq(201);\n    expect(res.body).has.property(\"email\", testEmail);\n    expect(res.body).has.property(\"name\", payload.name);\n  }).then(function (res) {\n    var userId = res.body.id;\n    cy.log(\"user id is: \" + userId); //2. delete user (DELETE)\n    cy.request({\n      method: \"DELETE\",\n      url: Cypress.env(\"goresturl\") + userId,\n      headers: {\n        Authorization: \"Bearer \" + accessToken\n      }\n    }).then(function (res) {\n      expect(res.status).to.eq(204);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "44a70229-c17f-48be-b1cf-45a8f91c101e",
+              "parentUUID": "eeb34c4e-486d-49de-9d37-21e3bdf5a4de",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44a70229-c17f-48be-b1cf-45a8f91c101e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 929,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\report\\.jsons",
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "reportPageTitle": "custom-title",
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

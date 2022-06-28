@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-24T09:33:32.933Z",
+    "end": "2022-05-24T09:33:37.465Z",
+    "duration": 4532,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8d77b39e-e13a-47d3-801e-7c988be2939c",
+      "title": "",
+      "fullFile": "cypress/integration/tests/SingleSignOnTest.js",
+      "file": "cypress/integration/tests/SingleSignOnTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1ccaa60e-66ce-49cb-a56b-9d32109cd57b",
+          "title": "Logging In - Single Sign on",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "can authenticate with cy.request",
+              "fullTitle": "Logging In - Single Sign on can authenticate with cy.request",
+              "timedOut": null,
+              "duration": 1361,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env(\"dashboardurl\"));\npracticeMethods.verifyMessage();\nvar options = {\n  method: \"POST\",\n  url: Cypress.env(\"requesturl\"),\n  qs: {\n    redirectTo: Cypress.env(\"redirecturl\")\n  },\n  body: {\n    username: _user[\"default\"].üsername,\n    password: _user[\"default\"].password\n  },\n  form: true\n};\ncy.request(options); //Cypress runs your test on browser\n//SSO - email password //ca -> redirect to\ncy.visit(Cypress.env(\"dashboardurl\"));\npracticeMethods.verifySuccessMessage();",
+              "err": {},
+              "uuid": "aa0ddb45-6aba-4a8c-a63c-b13c88d36fb9",
+              "parentUUID": "1ccaa60e-66ce-49cb-a56b-9d32109cd57b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa0ddb45-6aba-4a8c-a63c-b13c88d36fb9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1361,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\report\\.jsons",
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "reportPageTitle": "custom-title",
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

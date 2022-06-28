@@ -1,0 +1,107 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Flipkart Login test",
+    "line": 2,
+    "id": "flipkart-login-test",
+    "tags": [],
+    "uri": "flipkart.feature",
+    "elements": [
+      {
+        "id": "flipkart-login-test;login-to-flipkart",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login to flipkart",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user launch the  application",
+            "result": {
+              "status": "passed",
+              "duration": 7058000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "user clicks on Login Tab",
+            "result": {
+              "status": "passed",
+              "duration": 478000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "user enters username and password and clicks on login",
+            "result": {
+              "status": "passed",
+              "duration": 1772000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "user verify the HomePage title",
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "product"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "one plus"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "user search a product",
+            "result": {
+              "status": "passed",
+              "duration": 9909000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "user verify number of product displayed",
+            "result": {
+              "status": "passed",
+              "duration": 611000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "user logout from flipkart",
+            "result": {
+              "status": "passed",
+              "duration": 1947000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
