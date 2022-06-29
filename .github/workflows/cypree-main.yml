@@ -15,7 +15,7 @@ jobs:
 
 cypress-test:
 
-name: Run on Chrome 83
+name: Run on Chrome 99
 
 runs-on: ubuntu-18.04
 
