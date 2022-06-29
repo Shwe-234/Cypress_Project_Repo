@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node your-script.js"
-    "cy:test": "npx cypress run --spec cypress/integration/tests/*.js --headed --browser chrome",
+   
+    "start": "npx cypress run --spec cypress/integration/tests/*.js --headed --browser chrome",
     "recordDashboardTest": "cypress run --record --key c6c68f61-48d2-43d6-92e5-88ee2dd56783"
   },
   "cypress-cucumber-preprocessor": {
