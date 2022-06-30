@@ -6,7 +6,7 @@ on: [push]
 jobs:
   cypress-run:
     name: Cypress run
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04,windows-latest
     strategy:
       fail-fast: false
       matrix:
